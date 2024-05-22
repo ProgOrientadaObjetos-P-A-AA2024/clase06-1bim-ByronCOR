@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paquete2;
+package paquete4;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,14 +12,14 @@ import java.util.Scanner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import paquete1.Profesor;
+
 
 public class ArchivoLectura {
 
     private Scanner entrada;
     private String nombreArchivo;
     private String rutaArchivo;
-    private ArrayList<Profesor> lista;
+    private ArrayList<Empresa> lista;
 
     public ArchivoLectura(String n) {
         nombreArchivo = n;
@@ -68,16 +69,16 @@ public class ArchivoLectura {
                 ArrayList<String> linea_partes = new ArrayList<>(
                         Arrays.asList(linea.split(";")) // ["Tara Hernandez", "contratado"]
                 );
-                Profesor p = new Profesor(linea_partes.get(0), // Tara Hernandez
+                Empresa e = new Empresa(linea_partes.get(0), // Tara Hernandez
                         linea_partes.get(1) // contratado
                 );
-                lista.add(p);
+                lista.add(e);
 
             } // fin de while
         }
     }
 
-    public ArrayList<Profesor> obtenerLista() {
+    public ArrayList<Empresa> obtenerLista() {
 
         return lista;
     }
@@ -91,13 +92,13 @@ public class ArchivoLectura {
 
     @Override
     public String toString() {
-        String cadena = "Lista Profesores\n";
+        String cadena = "Lista Empresas\n";
         for (int i = 0; i < obtenerLista().size(); i++) {
-            Profesor profTemporal = obtenerLista().get(i); // Obj. Profesor
+            Empresa empresa = obtenerLista().get(i); // Obj. Profesor
             cadena = String.format("%s(%d) %s %s\n", cadena,
                     i + 1,
-                    profTemporal.obtenerNombre(), // obtenerLista().get(i).obtenerNombre(),
-                    profTemporal.obtenerTipo());    // obtenerLista().get(i).obtenerTipo());
+                    empresa.obtenerNombre(), // obtenerLista().get(i).obtenerNombre(),
+                    empresa.obtenerCiudad());    // obtenerLista().get(i).obtenerTipo());
         }
         return cadena;
     }

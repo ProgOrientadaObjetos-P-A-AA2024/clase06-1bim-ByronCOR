@@ -80,7 +80,8 @@ public class ArchivoLectura {
 
                 ArrayList<String> cadenaProfesor = new ArrayList<>(
                         Arrays.asList(profesor.split("\\|")));
-                // ["Tara Hernandez", "contratado"]
+                // ["Tara Hernandez", "contratado"] \\ funciona como un excape cuando se utiliza un caracte 
+                //distinto de punto coma para que le tome en cuenta
                 //        0                 1
 
                 Profesor p = new Profesor(cadenaProfesor.get(0),
