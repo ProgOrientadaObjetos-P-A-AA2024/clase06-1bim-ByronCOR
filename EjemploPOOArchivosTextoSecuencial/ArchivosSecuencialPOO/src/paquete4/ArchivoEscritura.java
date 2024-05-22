@@ -65,7 +65,7 @@ public class ArchivoEscritura {
                     e.obtenerCiudad());
             salidaArchivo.format("%s\n", cadenaRegistro);
             salidaArchivo.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.err.println("Error al crear el archivo.");
             System.err.println(e);
 
